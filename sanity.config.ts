@@ -1,7 +1,7 @@
 import { defineConfig } from "sanity";
 import { schemaTypes } from "./schemas";
 import { deskTool } from "sanity/desk";
-
+import {visionTool} from '@sanity/vision'
 export default defineConfig({
   name: "default",
   title: "Sanity Next.js Blog",
@@ -10,7 +10,7 @@ export default defineConfig({
   dataset: "production",
   basePath: "/studio",
 
-  plugins: [deskTool()],
+  plugins: [deskTool(),visionTool()],
 
   schema: {
     types: schemaTypes,
