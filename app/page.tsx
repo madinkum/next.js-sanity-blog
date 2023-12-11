@@ -3,14 +3,14 @@ import client from "@/library/sanity.client";
 import Link from "next/link";
 
 async function getData() {
-  const query =`*[_type == "post"]`;
+  const query = `*[_type == "post"]`;
 
   const data = await client.fetch(query);
 
   return data;
 }
 export default async function Home() {
-  const  data = (await getData()) as Post[];
+  const data = (await getData()) as Post[];
   return (
     <div className="divide-y divide-gray-200 dark:divide-gray-700">
       <div className="space-y-2 pt-6 pb-8 md:space-y-5">
@@ -18,7 +18,7 @@ export default async function Home() {
           All Posts
         </h1>
       </div>
-    <ul>
+      <ul>
         {data.map((post) => (
           <li key={post._id} className="py-4">
             <article className="space-y-2 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0">
@@ -43,9 +43,9 @@ export default async function Home() {
                 </p>
               </Link>
             </article>
-       </li>
+          </li>
         ))}
-    </ul>
-  </div>
-  )
+      </ul>
+    </div>
+  );
 }
