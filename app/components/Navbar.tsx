@@ -11,7 +11,9 @@ export default function Navbar() {
               Tech <span className="text-pink-600">Blog</span>
             </h1>
           </Link>
+          <Link href={"/"}>Home</Link>
 
+          <Link href={"/blog"}>Blog</Link>
           <ThemeButton />
         </div>
       </div>
