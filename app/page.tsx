@@ -1,51 +1,29 @@
-import { Post } from "@/library/interface";
-import client from "@/library/sanity.client";
-import Link from "next/link";
+import React from 'react'
 
-async function getData() {
-  const query = `*[_type == "post"]`;
-
-  const data = await client.fetch(query);
-
-  return data;
-}
-export default async function Home() {
-  const data = (await getData()) as Post[];
+const Home = () => {
   return (
-    <div className="divide-y divide-gray-200 dark:divide-gray-700">
-      <div className="space-y-2 pt-6 pb-8 md:space-y-5">
-        <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
-          All Posts
-        </h1>
-      </div>
-      <ul>
-        {data.map((post) => (
-          <li key={post._id} className="py-4">
-            <article className="space-y-2 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0">
-              <div>
-                <p className="text-base font-medium leading-6 text-pink-500">
-                  {new Date(post._createdAt).toISOString().split("T")[0]}
-                </p>
-              </div>
-              <Link
-                href={`/post/${post.slug.current}`}
-                prefetch
-                className="space-y-3 xl:col-span-3"
-              >
-                <div>
-                  <h3 className="text-2xl font-bold leading-8 tracking-tight text-gray-900 dark:text-gray-100">
-                    {post.title}
-                  </h3>
-                </div>
-
-                <p className="prose max-w-none text-gray-500 dark:text-gray-400 line-clamp-3">
-                  {post.overview}
-                </p>
-              </Link>
-            </article>
-          </li>
-        ))}
-      </ul>
+    <div>
+      <br />
+      <br />
+      <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-4xl md:leading-14">Becoming a web developer</h1>
+      <div>
+      <br />
+      <p className='md:text-xl'> Hi, Welcome to my blog. I am Madinku Mabala a web developer. As an individual you have plans, goals and desires that you one day wish to archive. 
+        Learning programming was certainly not one of them for me. I am surrounded by computer scientists, network administrators and IT technicians and this is where I drew my inspiration from.
+        I am a self taught web developer. I have had countless sleepless nights figuring out and learning coding on my own. I have learned so much discipline ever since I have started coding and 
+        and my skills have improved for the better.
+      </p> 
+      <br />
+      <p className='md:text-xl'>I have build a few websites using different programming languages and I will share what I know about coding as I learn more different languages.
+         
+      </p>
+      <br />
+      <img src="./program-L.png" alt="Languages picture" />
+      <br />
     </div>
-  );
+      </div>
+    
+  )
 }
+
+export default Home
