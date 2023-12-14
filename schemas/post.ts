@@ -39,7 +39,14 @@ export default {
               title: "Alternative Text",
             },
           ],
+        
         },
+        {
+          name:"code",
+          type: "code",
+          title:"Code Block",
+          
+        }
       ],
     },
   ],
