@@ -11,9 +11,9 @@ export default function Navbar() {
               Tech <span className="text-pink-600">Blog</span>
             </h1>
           </Link>
-          <Link href={"/"}>Home</Link>
+          <Link href={"/"} className="text-2xl font-medium">Home</Link>
 
-          <Link href={"/blog"}>Blog</Link>
+          <Link href={"/blog"} className="text-2xl font-medium">Blog</Link>
           <ThemeButton />
         </div>
       </div>
