@@ -1,3 +1,4 @@
+
 export default {
   name: "post",
   type: "document",

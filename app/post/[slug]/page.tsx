@@ -1,3 +1,4 @@
+"use client"
 import { Post } from "@/library/interface";
 import client from "@/library/sanity.client";
 import { urlFor } from "@/library/sanityImageUrl";
@@ -8,7 +9,9 @@ import Image from "next/image";
 async function getData(slug: string) {
   const query = `*[_type == "post" && slug.current == "${slug}"][0]`;
 
-  const data = await client.fetch(query);
+  const data = await client.fetch(query, { 
+    next: {revalidate: 60 }
+  });
 
   return data;
 }
