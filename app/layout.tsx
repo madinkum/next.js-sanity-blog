@@ -18,12 +18,12 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  const headerList=headers();
-  const url = headerList.get('next-url');
- const isStudio = url?.startsWith('/studio');
- if (isStudio){
-  return <>{children}</>
- }
+//   const headerList=headers();
+//   const url = headerList.get('next-url');
+//  const isStudio = url?.startsWith('/studio');
+//  if (isStudio){
+//   return <>{children}</>
+//  }
   return (
     <html lang="en" suppressHydrationWarning>
       <body
