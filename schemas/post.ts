@@ -44,11 +44,26 @@ export default {
         },
         {
           name:"code",
-          type: "code",
+          type: "object",
           title:"Code Block",
-          
+          fields:[
+            {
+              name: 'language',
+              type: 'string',
+              title: 'Language',
+            },
+            {
+              name: 'code',
+              type: 'text',
+              title: 'Code',
+            },
+          ]
+              
         }
+    
       ],
     },
+    
   ],
+  
 };
