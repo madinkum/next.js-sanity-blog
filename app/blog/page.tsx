@@ -7,7 +7,7 @@ async function getData() {
   const query = `*[_type == "post"]`;
 
   const data = await client.fetch(query, { 
-    next: {revalidate: 10 },
+    next: {revalidate: 0 },
     
     
   })
