@@ -6,7 +6,7 @@ export default function Form() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
+  
 
   return (
     <div>
@@ -23,10 +23,12 @@ export default function Form() {
           <label className="mb-2 uppercase font-bold text-lg text-grey-darkest">
             First Name
             <input
-              className='border py-2 px-3 w-full text-grey-darkest" type="text" name="first_name" id="first_name"'
-              required
+              className='border py-2 px-3 w-full text-grey-darkest  name="first_name" id="first_name"'
+              type="text"
+              autoComplete="First Name"
               onChange={(e) => setFirstName(e.target.value)}
               value={firstName}
+              required
             />
           </label>
         </div>
@@ -35,10 +37,12 @@ export default function Form() {
           <label className="mb-2 uppercase font-bold text-lg text-grey-darkest">
             Last Name
             <input
-              className='border py-2 px-3 w-full text-grey-darkest" type="text" name="last_name" id="last_name"'
-              required
+              className='border py-2 px-3 w-full text-grey-darkest"  name="last_name" id="last_name"'
+              type="text"
+              autoComplete="Last Name"
               onChange={(e) => setLastName(e.target.value)}
               value={lastName}
+              required
             />
           </label>
         </div>
@@ -47,8 +51,10 @@ export default function Form() {
           <label className="mb-2 uppercase font-bold text-lg text-grey-darkest">
             Email
             <input
-              className='border py-2 px-3 w-full text-grey-darkest" type="text" name="email" id="email"'
+              className='border py-2 px-3 w-full text-grey-darkest"  name="email" id="email"'
               required
+              type="text"
+              autoComplete="Email" 
               onChange={(e) => setEmail(e.target.value)}
               value={email}
             />
@@ -57,7 +63,7 @@ export default function Form() {
 
         <button
           className="btn-primary block bg-pink hover:bg-pink-dark  uppercase text-lg mx-auto p-4 rounded"
-          disabled={isLoading}
+          type="submit"
         >
           SUBMIT
         </button>
