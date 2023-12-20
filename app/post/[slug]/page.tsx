@@ -9,7 +9,7 @@ async function getData(slug: string) {
   const query = `*[_type == "post" && slug.current == "${slug}"][0]`;
 
   const data = await client.fetch(query, {
-    next: { revalidate: 10 },
+    next: { revalidate: 0 },
   });
 
   return data;
