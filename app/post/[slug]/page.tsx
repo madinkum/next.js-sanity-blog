@@ -14,10 +14,7 @@ async function getData(slug: string) {
 
   return data;
 }
-export const config = {
-  runtime: "experimental-edge",
-};
-
+export const runtime = 'nodejs'
 export default async function SlugPage({
   params,
 }: {
