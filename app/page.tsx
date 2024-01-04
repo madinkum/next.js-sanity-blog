@@ -2,6 +2,7 @@
 import { useState } from "react";
 import Form from "./form/form";
 
+export const runtime = 'nodejs'
 export default function Home() {
   return (
     <div>

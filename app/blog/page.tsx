@@ -14,7 +14,7 @@ async function getData() {
 
   return data;
 }
-
+export const runtime = 'nodejs'
 
 export default async function Home() {
   const data = (await getData()) as Post[];
