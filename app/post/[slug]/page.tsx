@@ -9,11 +9,14 @@ async function getData(slug: string) {
   const query = `*[_type == "post" && slug.current == "${slug}"][0]`;
 
   const data = await client.fetch(query, {
-    next: { revalidate: 0 },
+    next: { revalidate: 60 },
   });
 
   return data;
 }
+export const config = {
+  runtime: "experimental-edge",
+};
 
 export default async function SlugPage({
   params,

@@ -7,13 +7,17 @@ async function getData() {
   const query = `*[_type == "post"]`;
 
   const data = await client.fetch(query, { 
-    next: {revalidate: 0 },
+    next: {revalidate: 60 },
     
     
   })
 
   return data;
 }
+export const config = {
+  runtime: "experimental-edge",
+};
+
 export default async function Home() {
   const data = (await getData()) as Post[];
   return (
