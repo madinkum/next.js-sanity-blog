@@ -10,11 +10,12 @@ async function getData(slug: string) {
 
   const data = await client.fetch(query, {
     next: { revalidate: 60 },
-  });
+  },{cache:"no-cache"}
+  );
 
   return data;
 }
-export const runtime = 'nodejs'
+
 export default async function SlugPage({
   params,
 }: {

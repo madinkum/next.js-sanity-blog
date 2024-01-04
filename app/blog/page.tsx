@@ -10,11 +10,12 @@ async function getData() {
     next: {revalidate: 60 },
     
     
-  })
+  },{cache:"no-cache"}
+  )
 
   return data;
 }
-export const runtime = 'nodejs'
+
 
 export default async function Home() {
   const data = (await getData()) as Post[];
