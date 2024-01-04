@@ -10,7 +10,7 @@ async function getData() {
     next: {revalidate: 60 },
     
     
-  },{cache:"no-cache"}
+  }
   )
 
   return data;
