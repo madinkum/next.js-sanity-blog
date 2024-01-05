@@ -43,7 +43,7 @@ export default {
         
         },
         {
-          name:"code",
+          name:"mycode",
           type: "object",
           title:"Code Block",
           fields:[
