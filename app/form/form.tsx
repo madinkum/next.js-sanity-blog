@@ -1,15 +1,12 @@
 "use client";
 import React from "react";
 import { useState } from "react";
-import { useForm} from '@formspree/react';
-
-
 
 export default function Form() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
-  
+
   return (
     <div>
       <h1 className="text-primary font-bold mb-5 text-xl text-center">
@@ -17,30 +14,40 @@ export default function Form() {
       </h1>
 
       <form
-        className=" mb-6 border w-full "
+        className=" md:items-center w-full  max-w-xl"
         action="https://formspree.io/f/xnqeqolv"
         method="post"
       >
-        <div className="flex flex-col mb-4">
-          <label className="mb-2 uppercase font-bold text-lg text-grey-darkest">
-            First Name
+        <br />
+        <div className="md:flex md:items-center mb-6">
+          <div className="md:w-1/3">
+            <label className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4">
+              First Name
+            </label>
+          </div>
+          <div className="md:w-2/3">
             <input
-              className='border py-2 px-3 w-full text-grey-darkest  name="first_name" id="first_name"'
-              type="first name"
+              className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+              id="inline-first-name"
               name="first name"
               autoComplete="First Name"
               onChange={(e) => setFirstName(e.target.value)}
               value={firstName}
               required
             />
-          </label>
+          </div>
         </div>
 
-        <div className="flex flex-col mb-4">
-          <label className="mb-2 uppercase font-bold text-lg text-grey-darkest">
-            Last Name
+        <div className="md:flex md:items-center mb-6">
+          <div className="md:w-1/3">
+            <label className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4">
+              Last Name
+            </label>
+          </div>
+          <div className="md:w-2/3">
             <input
-              className='border py-2 px-3 w-full text-grey-darkest"  name="last_name" id="last_name"'
+              className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+              id="inline-last-name"
               type="last name"
               name="last name"
               autoComplete="Last Name"
@@ -48,30 +55,41 @@ export default function Form() {
               value={lastName}
               required
             />
-          </label>
+          </div>
         </div>
 
-        <div className="flex flex-col mb-6">
-          <label className="mb-2 uppercase font-bold text-lg text-grey-darkest">
-            Email
+        <div className="md:flex md:items-center mb-6">
+          <div className="md:w-1/3">
+            <label className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4">
+              Email
+            </label>
+          </div>
+          <div className="md:w-2/3">
             <input
-              className='border py-2 px-3 w-full text-grey-darkest"  name="email" id="email"'
+              className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+              id="inline-email"
               required
               type="email"
               name="email"
-              autoComplete="Email" 
+              autoComplete="Email"
               onChange={(e) => setEmail(e.target.value)}
               value={email}
             />
-          </label>
+          </div>
         </div>
 
-        <button
-          className="btn-primary block bg-pink hover:bg-pink-dark  uppercase text-lg mx-auto p-4 rounded"
-          type="submit"
-        >
-          SUBMIT
-        </button>
+        <div className="md:flex md:items-center">
+          <div className="md:w-1/3"></div>
+          <div className="md:w-2/3">
+            <button
+              className="shadow bg-pink-600 hover:bg-pink-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
+              type="submit"
+            >
+              Submit
+            </button>
+          </div>
+        </div>
+        <br />
       </form>
     </div>
   );
