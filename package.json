@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@formspree/react": "^2.5.1",
     "@portabletext/react": "^3.0.11",
     "@sanity/block-content-to-react": "^3.0.0",
     "@sanity/client": "^6.9.1",
