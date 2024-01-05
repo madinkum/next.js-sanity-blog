@@ -2,6 +2,9 @@
 import React from "react";
 import { useState } from "react";
 
+
+
+
 export default function Form() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -16,7 +19,7 @@ export default function Form() {
 
       <form
         className=" mb-6 border w-full "
-        action="mailto:MadinkuFinny@gmail.com"
+        action="https://formeezy.com/api/v1/forms/65979d2206eb52000815ba69/submissions"
         method="post"
       >
         <div className="flex flex-col mb-4">
