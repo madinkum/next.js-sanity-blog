@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { useState } from "react";
-
+import { useForm} from '@formspree/react';
 
 
 
@@ -10,7 +10,6 @@ export default function Form() {
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   
-
   return (
     <div>
       <h1 className="text-primary font-bold mb-5 text-xl text-center">
@@ -19,7 +18,7 @@ export default function Form() {
 
       <form
         className=" mb-6 border w-full "
-        action="https://formeezy.com/api/v1/forms/65979d2206eb52000815ba69/submissions"
+        action="https://formspree.io/f/xnqeqolv"
         method="post"
       >
         <div className="flex flex-col mb-4">
@@ -27,7 +26,8 @@ export default function Form() {
             First Name
             <input
               className='border py-2 px-3 w-full text-grey-darkest  name="first_name" id="first_name"'
-              type="text"
+              type="first name"
+              name="first name"
               autoComplete="First Name"
               onChange={(e) => setFirstName(e.target.value)}
               value={firstName}
@@ -41,7 +41,8 @@ export default function Form() {
             Last Name
             <input
               className='border py-2 px-3 w-full text-grey-darkest"  name="last_name" id="last_name"'
-              type="text"
+              type="last name"
+              name="last name"
               autoComplete="Last Name"
               onChange={(e) => setLastName(e.target.value)}
               value={lastName}
@@ -56,7 +57,8 @@ export default function Form() {
             <input
               className='border py-2 px-3 w-full text-grey-darkest"  name="email" id="email"'
               required
-              type="text"
+              type="email"
+              name="email"
               autoComplete="Email" 
               onChange={(e) => setEmail(e.target.value)}
               value={email}
