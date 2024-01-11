@@ -2,7 +2,7 @@ import { defineConfig } from "sanity";
 import { schemaTypes } from "./schemas";
 import { deskTool } from "sanity/desk";
 import {visionTool} from '@sanity/vision'
-import { CodeInput, codeInput } from "@sanity/code-input";
+import {codeInput } from "@sanity/code-input";
 export default defineConfig({
   name: "default",
   title: "Sanity Next.js Blog",
