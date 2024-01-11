@@ -1,4 +1,4 @@
-
+'use client'
 export default {
   name: "post",
   type: "document",
@@ -43,15 +43,10 @@ export default {
         
         },
         {
-          name:"mycode",
-          type: "object",
+          name:"code",
+          type: "code",
           title:"Code Block",
-          fields:[
-            {
-              name: 'language',
-              type: 'string',
-              title: 'Language',
-            },
+          of:[
             {
               name: 'code',
               type: 'text',
