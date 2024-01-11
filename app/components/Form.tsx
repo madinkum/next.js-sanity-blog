@@ -7,14 +7,7 @@ export default function Form() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
-  const [FormState, setFormState] = useState(''
   
-  
-  );
-  
-
-  
-
   return (
     <div>
       <h1 className="text-primary font-bold mb-5 text-xl text-center">
@@ -22,7 +15,6 @@ export default function Form() {
       </h1>
 
       <form
-       data-netlify="true"
         className=" md:items-center w-full  max-w-xl"
         action="https://formspree.io/f/xnqeqolv"
         method="POST"
