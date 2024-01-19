@@ -1,22 +1,66 @@
 "use client";
 import React from "react";
 import { useState } from "react";
-
+import emailjs from 'emailjs-com';
+import axios from 'axios';
 
 export default function Form() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
+  const [isSubscribed, setIsSubscribed] = useState(false);
+
+  const sendThankYouEmail = async () => {
+    try {
+      const templateParams = {
+        to_email: email,
+        subject: 'Thank You for Subscribing!',
+        message: 'Thank you for subscribing to our blog!',
+      };
+    
+
+        
+      await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+        templateParams,
+        process.env.NEXT_PUBLIC_EMAILJS_USER_ID,
+      );
+      
+    } catch (error) {
+      console.error('Error sending thank you email:', error);
+    }
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    try {
+        
+        const response = await axios.post('/api/subscribe', { email });
   
+        if (response.status === 200) {
+          setIsSubscribed(true);
+          await sendThankYouEmail(); 
+        }
+      } catch (error) {
+        console.error('Error subscribing to the list:', error);
+      }
+    };
+
   return (
+    
     <div>
+      
       <h1 className="text-primary font-bold mb-5 text-xl text-center">
         Subscribe
       </h1>
-
+      {isSubscribed ? (
+        <p>Thank you for subscribing! A confirmation email has been sent.</p>
+      ) : (
       <form
         className=" md:items-center w-full  max-w-xl"
-        action="https://formspree.io/f/xnqeqolv"
+        onSubmit={handleSubmit}
         method="POST"
         
       >
@@ -93,6 +137,7 @@ export default function Form() {
         </div>
         <br />
       </form>
+      )}
     </div>
   );
 }
