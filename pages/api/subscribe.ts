@@ -18,7 +18,7 @@ export default async function handler(req:any, res:any) {
             Authorization: `Bearer ${process.env.MAILCHIMP_API_KEY}`,
           },
         }
-      );
+      ); 
       
       
       res.status(response.status).json(response.data);
