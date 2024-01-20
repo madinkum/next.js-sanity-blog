@@ -99,11 +99,7 @@ const SubscriptionForm = () => {
                     title="Mailchimp - email marketing made easy and fun"
                   >
                     <span className="two">
-                      {/* <img
-                        className="refferal_badge"
-                        src="https://digitalasset.intuit.com/render/content/dam/intuit/mc-fe/en_us/images/intuit-mc-rewards-text-dark.svg"
-                        alt="Intuit Mailchimp"
-                      /> */}
+                      
                     </span>
                   </a>
                 </p>

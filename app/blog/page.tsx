@@ -1,4 +1,4 @@
-"use client"
+
 import { Post } from "@/library/interface";
 import client from "@/library/sanity.client";
 import Link from "next/link";
@@ -8,14 +8,11 @@ async function getData() {
 
   const data = await client.fetch(query, { 
     next: {revalidate: 60 },
-    
-    
+        
   }
   )
-
   return data;
 }
-
 
 export default async function Home() {
   const data = (await getData()) as Post[];
