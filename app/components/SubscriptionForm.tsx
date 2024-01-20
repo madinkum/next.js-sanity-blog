@@ -75,8 +75,7 @@ const SubscriptionForm = () => {
               <div className="response" id="mce-success-response"></div>
             </div>
             <div id="one" aria-hidden="true">
-              /* real people should not fill this in and expect good things - do
-              not remove this or risk form bot signups */
+              
               <input
                 type="text"
                 name="b_283f412fdcd84ba4f743b199f_cd98414cdc"
