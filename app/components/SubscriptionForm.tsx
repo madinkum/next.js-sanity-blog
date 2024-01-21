@@ -43,30 +43,36 @@ const SubscriptionForm = () => {
                 autoComplete="Email"
                 onChange={(e) => setEmail(e.target.value)}
                 value={email}
-                
               />
             </div>
             <div className="mc-field-group">
-              <label htmlFor="mce-FNAME">First Name </label>
+              <label htmlFor="mce-FNAME">
+                First Name
+                <span className="asterisk">*</span>
+              </label>
               <input
                 type="text"
-                name="first name"
-                className="text bg-white"
+                name="FNAME"
+                className="required text bg-white"
                 id="mce-FNAME"
                 onChange={(e) => setFirstName(e.target.value)}
                 value={firstName}
+                required
               />
             </div>
             <div className="mc-field-group">
-              <label htmlFor="mce-LNAME">Last Name </label>
+              <label htmlFor="mce-LNAME">
+                Last Name
+                <span className="asterisk">*</span>
+              </label>
               <input
-                name="last name"
+                name="LNAME"
                 autoComplete="Last Name"
                 onChange={(e) => setLastName(e.target.value)}
                 value={lastName}
                 required
                 type="text"
-                className=" text bg-white"
+                className="required text bg-white"
                 id="mce-LNAME"
               ></input>
             </div>
@@ -75,7 +81,6 @@ const SubscriptionForm = () => {
               <div className="response" id="mce-success-response"></div>
             </div>
             <div id="one" aria-hidden="true">
-              
               <input
                 type="text"
                 name="b_283f412fdcd84ba4f743b199f_cd98414cdc"
@@ -97,9 +102,7 @@ const SubscriptionForm = () => {
                     href="http://eepurl.com/iIoEwk"
                     title="Mailchimp - email marketing made easy and fun"
                   >
-                    <span className="two">
-                      
-                    </span>
+                    <span className="two"></span>
                   </a>
                 </p>
               </div>
