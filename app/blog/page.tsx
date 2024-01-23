@@ -13,7 +13,6 @@ async function getData() {
   )
   return data;
 }
-
 export default async function Home() {
   const data = (await getData()) as Post[];
   return (
