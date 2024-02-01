@@ -4,10 +4,8 @@ import client from "@/library/sanity.client";
 import { urlFor } from "@/library/sanityImageUrl";
 const BlockContent = require("@sanity/block-content-to-react");
 import SyntaxHighlighter from "react-syntax-highlighter";
-import Image from "next/image"; 
-import Helmet from 'react-helmet'
+import Image from "next/image"
 
-import Script from "next/script";
 
 async function getData(slug: string) {
   const query = `*[_type == "post" && slug.current == "${slug}"][0]`;
@@ -81,7 +79,7 @@ export default async function SlugPage({
             />
              
               <div className="w-1/2 mx-auto">
-                <Script className="w-1"
+                <script className="w-1"
                   src="https://giscus.app/client.js"
                   data-repo="madinkum/next.js-sanity-blog"
                   data-repo-id="R_kgDOK2zaCg"
@@ -96,7 +94,7 @@ export default async function SlugPage({
                   data-lang="en"
                   crossOrigin="anonymous"
                   async
-                ></Script>
+                ></script>
                 
               
               </div>
