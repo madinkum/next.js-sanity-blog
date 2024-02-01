@@ -6,7 +6,6 @@ const BlockContent = require("@sanity/block-content-to-react");
 import SyntaxHighlighter from "react-syntax-highlighter";
 import Image from "next/image"
 
-
 async function getData(slug: string) {
   const query = `*[_type == "post" && slug.current == "${slug}"][0]`;
 
