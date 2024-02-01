@@ -8,5 +8,4 @@ export interface Post {
       current: string;
     };
     _createdAt: string;
-
   }
