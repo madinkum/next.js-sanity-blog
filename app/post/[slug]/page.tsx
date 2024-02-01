@@ -5,7 +5,7 @@ import { urlFor } from "@/library/sanityImageUrl";
 const BlockContent = require("@sanity/block-content-to-react");
 import SyntaxHighlighter from "react-syntax-highlighter";
 import Image from "next/image";
-
+import Giscus from '@giscus/react';
 async function getData(slug: string) {
   const query = `*[_type == "post" && slug.current == "${slug}"][0]`;
 
@@ -79,9 +79,27 @@ export default async function SlugPage({
               serializers={serializers}
               components={PortableTextComponent}
             />
+            <Giscus
+      id="comments"
+      repo="madinkum/next.js-sanity-blog"
+      repoId="R_kgDOK2zaCg"
+      category="Q&A"
+      categoryId="DIC_kwDOK2zaCs4Cc1bT"
+      mapping="pathname"
+      // term="Welcome to @giscus/react component!"
+      reactionsEnabled="1"
+      emitMetadata="0"
+      inputPosition="bottom"
+      theme="noborder_light"
+      lang="en"
+      loading="lazy"
+      
+    />
           </div>
         </div>
       </div>
+      
     </div>
+    
   );
 }
