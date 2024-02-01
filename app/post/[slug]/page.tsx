@@ -81,7 +81,6 @@ export default async function SlugPage({
             />
              
               <div className="w-1/2 mx-auto">
-              
                 <Script className="w-1"
                   src="https://giscus.app/client.js"
                   data-repo="madinkum/next.js-sanity-blog"
