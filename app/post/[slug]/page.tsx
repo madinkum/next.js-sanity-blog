@@ -1,17 +1,17 @@
-'use client'
+"use client";
 import { Post } from "@/library/interface";
 import client from "@/library/sanity.client";
 import { urlFor } from "@/library/sanityImageUrl";
 const BlockContent = require("@sanity/block-content-to-react");
 import SyntaxHighlighter from "react-syntax-highlighter";
 import Image from "next/image";
-import Giscus from '@giscus/react';
+
+import Script from "next/script";
+
 async function getData(slug: string) {
   const query = `*[_type == "post" && slug.current == "${slug}"][0]`;
 
-  const data = await client.fetch(query, {
-  }
-  );
+  const data = await client.fetch(query, {});
 
   return data;
 }
@@ -78,27 +78,29 @@ export default async function SlugPage({
               serializers={serializers}
               components={PortableTextComponent}
             />
-            <Giscus
-      id="comments"
-      repo="madinkum/next.js-sanity-blog"
-      repoId="R_kgDOK2zaCg"
-      category="Annoucements"
-      categoryId="DIC_kwDOK2zaCs4Cc1bT"
-      mapping="pathname"
-      data-strict="0"
-      reactionsEnabled="1"
-      emitMetadata="1"
-      inputPosition="bottom"
-      theme="noborder_light"
-      lang="en"
-      
-      
-    />
+            
+              <div className="w-1/2 mx-auto">
+              <Script className="w-1"
+                  src="https://giscus.app/client.js"
+                  data-repo="madinkum/next.js-sanity-blog"
+                  data-repo-id="R_kgDOK2zaCg"
+                  data-category="Announcements"
+                  data-category-id="DIC_kwDOK2zaCs4Cc1bT"
+                  data-mapping="pathname"
+                  data-strict="0"
+                  data-reactions-enabled="1"
+                  data-emit-metadata="0"
+                  data-input-position="bottom"
+                  data-theme="noborder_light"
+                  data-lang="en"
+                  crossOrigin="anonymous"
+                  async
+                ></Script>
+              </div>
+           
           </div>
         </div>
       </div>
-      
     </div>
-    
   );
 }
