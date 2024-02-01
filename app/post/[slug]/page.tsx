@@ -4,7 +4,8 @@ import client from "@/library/sanity.client";
 import { urlFor } from "@/library/sanityImageUrl";
 const BlockContent = require("@sanity/block-content-to-react");
 import SyntaxHighlighter from "react-syntax-highlighter";
-import Image from "next/image";
+import Image from "next/image"; 
+import Helmet from 'react-helmet'
 
 import Script from "next/script";
 
@@ -78,15 +79,16 @@ export default async function SlugPage({
               serializers={serializers}
               components={PortableTextComponent}
             />
-            
+             
               <div className="w-1/2 mx-auto">
-              <Script className="w-1"
+              
+                <Script className="w-1"
                   src="https://giscus.app/client.js"
                   data-repo="madinkum/next.js-sanity-blog"
                   data-repo-id="R_kgDOK2zaCg"
                   data-category="Announcements"
                   data-category-id="DIC_kwDOK2zaCs4Cc1bT"
-                  data-mapping="pathname"
+                  data-mapping="url"
                   data-strict="0"
                   data-reactions-enabled="1"
                   data-emit-metadata="0"
@@ -96,6 +98,8 @@ export default async function SlugPage({
                   crossOrigin="anonymous"
                   async
                 ></Script>
+                
+              
               </div>
            
           </div>
