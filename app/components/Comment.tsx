@@ -4,7 +4,7 @@ const Comments = () => {
   const disqusShortname = "madinku-dev-1"
   
   const disqusConfig = { 
-    url: "http://localhost:3000", 
+    url: "http://madinku.dev", 
     identifier:'123',  
     title: "Demo Post" 
   } 
