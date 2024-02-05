@@ -5,7 +5,8 @@ import { urlFor } from "@/library/sanityImageUrl";
 const BlockContent = require("@sanity/block-content-to-react");
 import SyntaxHighlighter from "react-syntax-highlighter";
 import Image from "next/image"
-import Comments from "@/app/components/Comment";
+import Giscus from '@giscus/react';
+
 
 async function getData(slug: string) {
   const query = `*[_type == "post" && slug.current == "${slug}"][0]`;
@@ -78,29 +79,27 @@ export default async function SlugPage({
               components={PortableTextComponent}
             />
             <div>
-            <Comments/> 
+            
             </div>
              
-              {/* <div className="w-1/2 mx-auto">
-                <script className="w-1"
-                  src="https://giscus.app/client.js"
-                  data-repo="madinkum/next.js-sanity-blog"
-                  data-repo-id="R_kgDOK2zaCg"
-                  data-category="Announcements"
-                  data-category-id="DIC_kwDOK2zaCs4Cc1bT"
-                  data-mapping="url"
-                  data-strict="0"
-                  data-reactions-enabled="1"
-                  data-emit-metadata="0"
-                  data-input-position="bottom"
-                  data-theme="noborder_light"
-                  data-lang="en"
-                  crossOrigin="anonymous"
-                  async
-                ></script>
+              <div>
+                <Giscus 
+                  id ="comments"
+                  repo="madinkum/next.js-sanity-blog"
+                  repoId="R_kgDOK2zaCg"
+                  category="Announcements"
+                  categoryId="DIC_kwDOK2zaCs4Cc1bT"
+                  mapping="url"
+                  strict="0"
+                  reactionsEnabled="1"
+                  emitMetadata="0"
+                  inputPosition="bottom"
+                  theme="noborder_light"
+                  lang="en"
+                />
                 
               
-              </div> */}
+              </div>
            
           </div>
         </div>
