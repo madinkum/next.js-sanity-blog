@@ -4,9 +4,8 @@ import client from "@/library/sanity.client";
 import { urlFor } from "@/library/sanityImageUrl";
 const BlockContent = require("@sanity/block-content-to-react");
 import SyntaxHighlighter from "react-syntax-highlighter";
-import Image from "next/image"
-import Giscus from '@giscus/react';
-
+import Image from "next/image";
+import Giscus from "@giscus/react";
 
 async function getData(slug: string) {
   const query = `*[_type == "post" && slug.current == "${slug}"][0]`;
@@ -78,11 +77,11 @@ export default async function SlugPage({
               serializers={serializers}
               components={PortableTextComponent}
             />
-            <div>
-            
-            </div>
-             
-              <div>
+            <div></div>
+            <div className="powr-comments" id="c043b7a0_1707131834"></div>
+            <script src="https://www.powr.io/powr.js?platform=html"></script>
+
+            {/* <div>
                 <Giscus 
                   id ="comments"
                   repo="madinkum/next.js-sanity-blog"
@@ -99,8 +98,7 @@ export default async function SlugPage({
                 />
                 
               
-              </div>
-           
+              </div> */}
           </div>
         </div>
       </div>
