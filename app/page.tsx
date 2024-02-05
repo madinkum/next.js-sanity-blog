@@ -1,6 +1,6 @@
 "use client";
 
-
+import Comments from "./components/Comment";
 import SubscriptionForm from "./components/SubscriptionForm";
 
 export default function Home() {
@@ -34,7 +34,7 @@ export default function Home() {
       <br />
       <br />
       <SubscriptionForm />
-      
+     
     </div>
   );
 }
