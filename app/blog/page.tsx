@@ -2,7 +2,6 @@
 import { Post } from "@/library/interface";
 import client from "@/library/sanity.client";
 import Link from "next/link";
-
 async function getData() {
   const query = `*[_type == "post"]`;
 
