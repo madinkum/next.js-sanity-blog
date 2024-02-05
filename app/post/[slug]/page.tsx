@@ -5,6 +5,7 @@ import { urlFor } from "@/library/sanityImageUrl";
 const BlockContent = require("@sanity/block-content-to-react");
 import SyntaxHighlighter from "react-syntax-highlighter";
 import Image from "next/image";
+import Script from "next/script";
 
 
 async function getData(slug: string) {
@@ -80,7 +81,7 @@ export default async function SlugPage({
             
             <div className="powr-comments" id="c043b7a0_1707131834">
 
-            <script src="https://www.powr.io/powr.js?platform=html"></script>
+            <Script src="https://www.powr.io/powr.js?platform=html"></Script>
             </div>
            
 
