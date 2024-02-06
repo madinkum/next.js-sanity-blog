@@ -7,6 +7,8 @@ import SyntaxHighlighter from "react-syntax-highlighter";
 import Image from "next/image";
 import GiscusComments from "@/app/components/GiscusComments";
 
+export const dynamic = 'force-dynamic'
+
 async function getData(slug: string) {
   const query = `*[_type == "post" && slug.current == "${slug}"][0]`;
 
