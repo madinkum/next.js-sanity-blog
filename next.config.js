@@ -4,13 +4,20 @@ const nextConfig = {
     images: {
         domains:["cdn.sanity.io"],
     },
-    env: {
-        NEXT_PUBLIC_GISCUS_REPO: 'next.js-sanity-blog',
-        NEXT_PUBLIC_GISCUS_REPO_ID: 'R_kgDOK2zaCg',
-        NEXT_PUBLIC_GISCUS_CATEGORY: 'Announcements',
-        NEXT_PUBLIC_GISCUS_CATEGORY_ID: 'DIC_kwDOK2zaCs4Cc1bT',
-        NEXT_PUBLIC_GISCUS_MAPPING: 'pathname',
-      },
+    async headers() {
+        return [
+            {
+                
+                source: "/blog",
+                headers: [
+                    { key: "Access-Control-Allow-Credentials", value: "true" },
+                    { key: "Access-Control-Allow-Origin", value: "https://next-js-sanity-blog-one.vercel.app/blog" }, // replace this your actual origin
+                    { key: "Access-Control-Allow-Methods", value: "GET,DELETE,PATCH,POST,PUT" },
+                    { key: "Access-Control-Allow-Headers", value: "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version" },
+                ]
+            }
+        ]
+    }
 }
 
 module.exports = nextConfig
