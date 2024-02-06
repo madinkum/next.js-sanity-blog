@@ -14,7 +14,6 @@ async function getData(slug: string) {
 
   return data;
 }
-
 export default async function SlugPage({
   params,
 }: {
