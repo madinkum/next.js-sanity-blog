@@ -1,6 +1,5 @@
 "use client";
 
-
 import SubscriptionForm from "./components/SubscriptionForm";
 
 export default function Home() {
