@@ -5,9 +5,9 @@ import { urlFor } from "@/library/sanityImageUrl";
 const BlockContent = require("@sanity/block-content-to-react");
 import SyntaxHighlighter from "react-syntax-highlighter";
 import Image from "next/image";
-import GiscusComments from "@/app/components/GiscusComments";
+import Comments from "@/app/components/Comments";
 
-export const dynamic = 'force-dynamic'
+
 
 async function getData(slug: string) {
   const query = `*[_type == "post" && slug.current == "${slug}"][0]`;
@@ -79,8 +79,7 @@ export default async function SlugPage({
               serializers={serializers}
               components={PortableTextComponent}
             />
-            <GiscusComments/>
-           
+            <Comments/>
           </div>
         </div>
       </div>
