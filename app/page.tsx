@@ -1,4 +1,3 @@
-"use client";
 
 import SubscriptionForm from "./components/SubscriptionForm";
 
