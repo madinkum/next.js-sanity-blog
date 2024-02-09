@@ -1,9 +1,9 @@
-[params.comments.utterances]
+params.comments.utterances
 enable = true
 issueTerm = "pathname" 
 label = ""
 theme = "github-light"
 
-[params.comments.utterances.github]
+params.comments.utterances.github
 username = "madinkum"
 repository = "next.js-sanity-blog"
