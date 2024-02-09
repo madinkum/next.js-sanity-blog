@@ -1,31 +1,43 @@
-import React, { Component } from 'react'
+// import React, { Component } from 'react'
 
 
-export default class Comments extends Component {
-    commentBox: React.RefObject<any>
-    constructor(props:any) {
-        super(props);
-        this.commentBox = React.createRef();
-    }
+// export default class Comments extends Component {
+//     commentBox: React.RefObject<any>
+//     constructor(props:any) {
+//         super(props);
+//         this.commentBox = React.createRef();
+//     }
 
-    componentDidMount() {
-        let scriptEl = document.createElement("script");
-        scriptEl.async= true;
-        scriptEl.crossOrigin = 'anonymous';
-        scriptEl.setAttribute("src", "https://utteranc.es/client.js")
-        scriptEl.setAttribute("repo", "madinkum/next.js-sanity-blog",)
-        scriptEl.setAttribute("issue-term", "pathname")
-        scriptEl.setAttribute("theme", "github-light")
-        this.commentBox.current.appendChild(scriptEl)
+//     componentDidMount() {
+//         let scriptEl = document.createElement("script");
+//         scriptEl.async= true;
+//         scriptEl.crossOrigin = 'anonymous';
+//         scriptEl.setAttribute("src", "https://utteranc.es/client.js")
+//         scriptEl.setAttribute("repo", "madinkum/next.js-sanity-blog",)
+//         scriptEl.setAttribute("issue-term", "pathname")
+//         scriptEl.setAttribute("theme", "github-light")
+//         this.commentBox.current.appendChild(scriptEl)
         
-    }
+//     }
 
-    render() {
+//     render() {
         
-        return (
-            <div style={{ width: '100%' }} id="comments">
-                <div ref={this.commentBox}></div>
-            </div>
-        )
-    }
+//         return (
+//             <div style={{ width: '100%' }} id="comments">
+//                 <div ref={this.commentBox}></div>
+//             </div>
+//         )
+//     }
+// }
+import React from 'react'
+
+const Comments = () => {
+  return (
+    <div>
+      <script defer src="https://cdn.commento.io/js/commento.js"></script>
+      <div id="commento"></div>
+    </div>
+  )
 }
+
+export default Comments
