@@ -1,24 +1,28 @@
-import Image from "next/image";
+
 import Link from "next/link";
-import logoDark from "../public/images/logoDark.png";
+import ThemeButton from "./ThemeButton";
+
 
 const Header = () => {
   return (
     <div className="w-full h-20 border-b-[1px] border-b-black font-titleFont sticky top-0 bg-white z-50 px-4">
       <div className="max-w-7xl h-full mx-auto flex justify-between items-center">
         <Link href="/">
-          <div>
-            <Image width={80} height={80} src={logoDark} alt="logoDark" />
-          </div>
+        <h1 className="text-2xl font-medium">
+              Tech <span className="text-pink-600">Blog</span>
+            </h1>
         </Link>
         <div>
-          <ul className="hidden lg:inline-flex gap-8 uppercase text-sm font-semibold">
-            <li className="headerLi">Home</li>
-            <li className="headerLi">Posts</li>
-            <li className="headerLi">Pages</li>
-            <li className="headerLi">Features</li>
-            <li className="headerLi">Contact</li>
-          </ul>
+          
+      <div className="hidden lg:inline-flex gap-8 uppercase text-sm font-semibold">
+        
+          <Link href={"/"} shallow className="text-l font-medium">Home</Link>
+
+          <Link href={"/blog"} shallow className="text-l font-medium">Blog</Link>
+          <ThemeButton />
+        
+        </div>
+    
         </div>
         <div className="flex items-center gap-8 text-lg">
           <div className="flex items-center gap-1">
