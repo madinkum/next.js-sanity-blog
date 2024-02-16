@@ -7,3 +7,31 @@
     @apply text-primaryColor hover:text-secondaryColor cursor-pointer duration-300;
   }
 }
+
+.response{
+  display: none;
+}
+
+#one{
+  position: absolute; 
+  left: -5000px;
+}
+
+.clear p{
+  margin: 0px auto;
+}
+
+.two{
+display: inline-block; 
+background-color: transparent; 
+border-radius: 4px
+}
+
+.two img{
+width: 220px; 
+height: 40px; 
+display: flex; 
+padding: 2px 0px; 
+justify-content: center; 
+align-items: center;
+}

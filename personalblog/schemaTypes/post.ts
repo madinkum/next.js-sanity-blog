@@ -31,6 +31,7 @@ export default defineType({
       type: 'reference',
       to: {type: 'author'},
     }),
+    
     defineField({
       name: 'mainImage',
       title: 'Main image',
@@ -54,7 +55,10 @@ export default defineType({
       name: 'body',
       title: 'Body',
       type: 'blockContent',
-    }),
+    },
+    
+    
+    ),
   ],
 
   preview: {

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Header from "../../components/Header";
-import Footer from "../../components/Footer";
+const BlockContent = require("@sanity/block-content-to-react");
+import SyntaxHighlighter from "react-syntax-highlighter";
 import { sanityClient, urlFor } from "../../sanity";
 import { Post } from "../../typings";
 import { GetStaticProps } from "next";
@@ -18,7 +18,7 @@ type Inputs = {
 };
 
 const Post = ({ post }: Props) => {
-    const [submitted, setsubmitted] = useState(false)
+  const [submitted, setSubmitted] = useState(false);
   const {
     register,
     handleSubmit,
@@ -29,22 +29,33 @@ const Post = ({ post }: Props) => {
     fetch("/api/createComment", {
       method: "POST",
       body: JSON.stringify(data),
-    }).then(()=>{
-     setsubmitted(true);
-    }).catch((err)=>
-    setsubmitted(false)
-    )
+    })
+      .then(() => {
+        setSubmitted(true);
+      })
+      .catch((err) => setSubmitted(false));
+  };
 
+  const serializers = {
+    types: {
+      code: (props: any) => (
+        <div className="my-2">
+          <SyntaxHighlighter language={props.node.language}>
+            {props.node.code}
+          </SyntaxHighlighter>
+        </div>
+      ),
+    },
   };
 
   return (
     <div>
-      <Header />
       <div className="max-w-3xl mx-auto mb-10">
         <article className="w-full max-auto p-5">
-          <h1 className="font-titleFont font-medium text-[32px] text-primary border-b-[1px] mt-10 mb-3">
+          <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900  sm:text-4xl sm:leading-10 md:text-4xl md:leading-14">
             {post.title}
           </h1>
+
           <h2>{post.description}</h2>
           <div>
             <img
@@ -56,7 +67,7 @@ const Post = ({ post }: Props) => {
               alt="author-img"
             />
             <p className="font-bodyFont text-base ">
-              Blog post by <span>{post.author.name}</span>- Published at{" "}
+              Blog post by {""} <span>{post.author.name}</span>- Published at{" "}
               {new Date(post.publishedAt).toLocaleDateString()}
             </p>
           </div>
@@ -67,6 +78,12 @@ const Post = ({ post }: Props) => {
                 process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || "dbfhkj94"
               }
               content={post.body}
+            />
+            <BlockContent
+              blocks={post.body}
+              projectId={process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || "dbfhkj94"}
+              dataset={process.env.NEXT_PUBLIC_SANITY_DATASEt || "production"}
+              serializers={serializers}
             />
           </div>
         </article>
@@ -137,10 +154,21 @@ const Post = ({ post }: Props) => {
               </button>
             </label>
           </form>
+          {/* Comments */}
+          <div className="w-full flex flex-col p-10 my-10 mx-auto shadow-bg-pink-400 shadow-lg space-y-2 ">
+            <h3 className="text-3xl font-titleFont font-semibold">Comments</h3>
+            <hr />
+            {post.comments.map((comment) => (
+              <div key={comment._id}>
+                <p>
+                  <span className="">{comment.name} : </span> {""}
+                  {comment.comment}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
-
-      <Footer />
     </div>
   );
 };
@@ -174,6 +202,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
             name,
             image,
         },
+        "comments":*[_type=="comment" && post._ref == ^._id && approved == true],
         description,
         mainImage,
         slug,
