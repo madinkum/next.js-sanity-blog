@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 const BlockContent = require("@sanity/block-content-to-react");
 import SyntaxHighlighter from "react-syntax-highlighter";
-import { sanityClient, urlFor } from "../../sanity";
+import { sanityClient} from "../../sanity";
 import { Post } from "../../typings";
 import { GetStaticProps } from "next";
 import PortableText from "react-portable-text";
@@ -58,17 +58,10 @@ const Post = ({ post }: Props) => {
 
           <h2>{post.description}</h2>
           <div>
-            <img
-              className="rounded-full"
-              w-2
-              h-2
-              object-cover
-              src={urlFor(post.author.image).url()!}
-              alt="author-img"
-            />
+           
             <p className="font-bodyFont text-base ">
               Blog post by {""} <span>{post.author.name}</span>- Published at{" "}
-              {new Date(post.publishedAt).toLocaleDateString()}
+              {new Date(post.publishedAt).toISOString().split("T")[0]}
             </p>
           </div>
           <div className="mt-10">
@@ -105,7 +98,15 @@ const Post = ({ post }: Props) => {
             name="_id"
             value={post._id}
           />
+          { submitted? (
+            <div className="flex flex-col max-w-2xl px-10 py-10 mx-auto my-10 text-white bg-green-500">
+            <h3 className="text-3xl font-bold">
+              Your comment has been submitted!
+            </h3>
+            <p> Once it has been approved, it will appear below</p>
+          </div>
 
+          ):(
           <form
             onSubmit={handleSubmit(onSubmit)}
             className="mt-7 flex flex-col gap-6"
@@ -154,6 +155,8 @@ const Post = ({ post }: Props) => {
               </button>
             </label>
           </form>
+
+           )}
           {/* Comments */}
           <div className="w-full flex flex-col p-10 my-10 mx-auto shadow-bg-pink-400 shadow-lg space-y-2 ">
             <h3 className="text-3xl font-titleFont font-semibold">Comments</h3>
