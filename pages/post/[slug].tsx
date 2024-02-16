@@ -49,36 +49,36 @@ const Post = ({ post }: Props) => {
   };
 
   return (
-    <div>
+    <div className="xl:divide-y xl:divide-gray-200 xl:dark:divide-gray-700">
       <div className="max-w-3xl mx-auto mb-10">
         <article className="w-full max-auto p-5">
-          <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900  sm:text-4xl sm:leading-10 md:text-4xl md:leading-14">
+          <h1 className="text-3xl font-extrabold text-gray-900 ">
             {post.title}
           </h1>
 
-          <h2>{post.description}</h2>
+          <h2 className="text-[18px]">{post.description}</h2>
           <div>
            
-            <p className="font-bodyFont text-base ">
+            <p >
               Blog post by {""} <span>{post.author.name}</span>- Published at{" "}
               {new Date(post.publishedAt).toISOString().split("T")[0]}
             </p>
           </div>
-          <div className="mt-10">
-            <PortableText
-              dataset={process.env.NEXT_PUBLIC_SANITY_DATASEt || "production"}
-              projectId={
-                process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || "dbfhkj94"
-              }
-              content={post.body}
-            />
-            <BlockContent
+          <div className="divide-y divide-gray-200 pb-7 dark:divide-gray-700 xl:divide-y-0">
+            <div className="divide-y divide-gray-200 dark:divide-gray-700 xl:col-span-3 xl:row-span-2 xl:pb-0">
+
+            <div  className="prose max-w-none pb-8 pt-10  prose-lg">
+            
+            <BlockContent 
               blocks={post.body}
               projectId={process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || "dbfhkj94"}
               dataset={process.env.NEXT_PUBLIC_SANITY_DATASEt || "production"}
               serializers={serializers}
             />
           </div>
+            </div>
+          </div>
+          
         </article>
         <hr className="max-w-lg my-5 mx-auto border[1px]" />
         <div>

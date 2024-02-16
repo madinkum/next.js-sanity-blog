@@ -2,12 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer components {
-  .headerLi {
-    @apply text-primaryColor hover:text-secondaryColor cursor-pointer duration-300;
-  }
+#mc_embed_signup{ 
+  /* background-color: white; */
+  font-size:14px;
+  font: Arial,sans-serif; 
+  width: 600px;
 }
-
 .response{
   display: none;
 }
