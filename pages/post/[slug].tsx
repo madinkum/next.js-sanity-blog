@@ -1,15 +1,42 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import { sanityClient, urlFor } from "../../sanity";
 import { Post } from "../../typings";
 import { GetStaticProps } from "next";
 import PortableText from "react-portable-text";
+import { useForm, SubmitHandler } from "react-hook-form";
 
 interface Props {
   post: Post;
 }
+type Inputs = {
+  _id: string;
+  name: string;
+  email: string;
+  comment: string;
+};
+
 const Post = ({ post }: Props) => {
+    const [submitted, setsubmitted] = useState(false)
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<Inputs>();
+
+  const onSubmit: SubmitHandler<Inputs> = (data) => {
+    fetch("/api/createComment", {
+      method: "POST",
+      body: JSON.stringify(data),
+    }).then(()=>{
+     setsubmitted(true);
+    }).catch((err)=>
+    setsubmitted(false)
+    )
+
+  };
+
   return (
     <div>
       <Header />
@@ -54,12 +81,24 @@ const Post = ({ post }: Props) => {
           <hr className="py-3 mt-2" />
           {/* Form Starts here */}
 
-          <form className="mt-7 flex flex-col gap-6">
+          {/* Generating Id for hooks form */}
+          <input
+            {...register("_id")}
+            type="hidden"
+            name="_id"
+            value={post._id}
+          />
+
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            className="mt-7 flex flex-col gap-6"
+          >
             <label className="flex flex-col">
               <span className="font-titleFont font-semibold text-base">
                 Name
               </span>
               <input
+                {...register("name", { required: true })}
                 className="text-base placeholder:text-sm border-b-[1px]
                   py-1 px-4 outline-none focus-within:shadow-xl"
                 type="text"
@@ -71,24 +110,31 @@ const Post = ({ post }: Props) => {
                 Email
               </span>
               <input
-                  className="text-base placeholder:text-sm border-b-[1px]
+                {...register("email", { required: true })}
+                className="text-base placeholder:text-sm border-b-[1px]
                   py-1 px-4 outline-none focus-within:shadow-xl"
-                  type="text"
-                  placeholder="Enter your Email"
-                />
+                type="text"
+                placeholder="Enter your Email"
+              />
             </label>
             <label className="flex flex-col">
               <span className="font-titleFont font-semibold text-base">
                 Comment
               </span>
               <textarea
-                  className="text-base placeholder:text-sm border-b-[1px]
+                {...register("comment", { required: true })}
+                className="text-base placeholder:text-sm border-b-[1px]
                   py-1 px-4 outline-none focus-within:shadow-xl"
-                  
-                  placeholder="Enter your Comment"
-                  rows={6}
-                />
-                <button type="submit">Submit</button>
+                placeholder="Enter your Comment"
+                rows={6}
+              />
+              <button
+                className="w-full bg-pink-500 text-white text-base font-titleFont font-semibold tracking-wider uppercase py-2 rounded-sm 
+                hover:bg-pink-600 duration-300"
+                type="submit"
+              >
+                Submit
+              </button>
             </label>
           </form>
         </div>
