@@ -2,9 +2,9 @@ import React, { useState } from "react";
 const BlockContent = require("@sanity/block-content-to-react");
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { sanityClient} from "../../sanity";
-import { Post } from "../../typings";
+import type { Post } from "../../typings";
 import { GetStaticProps } from "next";
-import PortableText from "react-portable-text";
+
 import { useForm, SubmitHandler } from "react-hook-form";
 
 interface Props {
