@@ -6,6 +6,7 @@ import type { Post } from "../../typings";
 import { GetStaticProps } from "next";
 
 import { useForm, SubmitHandler } from "react-hook-form";
+import PortableText from "react-portable-text";
 
 interface Props {
   post: Post;
@@ -45,7 +46,26 @@ const Post = ({ post }: Props) => {
           </SyntaxHighlighter>
         </div>
       ),
+      h1: (props: any) => (
+        <h1 className="my-5 text-2xl font-bold" {...props} />
+      ),
+      h2: (props: any) => (
+        <h2 className="my-5 text-xl font-bold" {...props} />
+      ),
+      h3: (props: any) => (
+        <h3 className="my-5 text-l font-bold" {...props} />
+      ),
+      li: ({ children }: any) => (
+        <li className="ml-4 list-disc"> {children}</li>
+      ),
+      link: ({ href, children }: any) => (
+        <a href={href} className="text-blue-500 hover:underline">
+          {children}
+        </a>
+      ),
+
     },
+    
   };
 
   return (
