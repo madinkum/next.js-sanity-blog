@@ -91,8 +91,8 @@ const Post = ({ post }: Props) => {
             
             <BlockContent 
               blocks={post.body}
-              projectId={process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || "dbfhkj94"}
-              dataset={process.env.NEXT_PUBLIC_SANITY_DATASEt || "production"}
+              projectId="dbfhkj94"
+              dataset="production"
               serializers={serializers}
             />
           </div>

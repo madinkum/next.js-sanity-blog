@@ -2,8 +2,8 @@ import { createClient } from '@sanity/client'
 import type { NextApiRequest, NextApiResponse } from 'next'
 
 const client = createClient({
-    dataset:process.env.NEXT_PUBLIC_SANITY_DATASET|| "production",
-    projectId:process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || "dbfhkj94",
+    dataset: "production",
+    projectId:"dbfhkj94",
     useCdn:true,
     token:process.env.SANITY_API_TOKEN,
 
