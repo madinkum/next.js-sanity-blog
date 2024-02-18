@@ -2,13 +2,10 @@ import { createClient } from "next-sanity";
 import createImageUrlBuilder from "@sanity/image-url";
 
 
-const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET;
-const apiVersion = process.env.NEXT_PUBLIC_SANITY_API_VERSION
-
 export const config ={
     projectId:"dbfhkj94",
-    dataset,
-    apiVersion,
+    dataset:"production",
+    apiVersion:2024-2-15,
     useCdn:true,
 };
 
