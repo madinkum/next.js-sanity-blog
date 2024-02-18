@@ -5,7 +5,8 @@ import createImageUrlBuilder from "@sanity/image-url";
 export const config ={
     projectId:"dbfhkj94",
     dataset:"production",
-    apiVersion:2024-2-15,
+    apiVersion:"2024-02-15",
+    
     useCdn:true,
 };
 
