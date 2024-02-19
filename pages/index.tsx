@@ -1,5 +1,5 @@
 
-import "slick-carousel/slick/slick.css";
+
 import { Post } from "../typings";
 import SubscriptionForm from "../components/SubscriptionForm";
 

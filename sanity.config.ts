@@ -5,6 +5,7 @@ import { schemaTypes } from "./personalblog/schemaTypes";
 import { codeInput } from "@sanity/code-input";
 
 export default defineConfig({
+  basePath:"/studio",
   name: "default",
   title: "personalblog",
 
