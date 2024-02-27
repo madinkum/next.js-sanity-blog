@@ -3,9 +3,17 @@ import { Post } from "@/library/interface";
 import client from "@/library/sanity.client";
 import Link from "next/link";
 
-export const dynamic = 'force-dynamic'
+
+
 async function getData() {
-  const query = `*[_type == "post"]`;
+  const query = `*[_type == "post"] | order(_createdAt desc){
+    title,
+    overview,
+    _createdAt ,
+    slug{
+      current
+    }
+  } `;
 
   const data = await client.fetch(query, { 
   }
@@ -13,7 +21,7 @@ async function getData() {
   return data;
 }
 export default async function Home() {
-  const data = (await getData()) as Post[];
+  const data:Post[] = await getData() ;
   return (
     <div className="divide-y divide-gray-200 dark:divide-gray-700">
       <div className="space-y-2 pt-6 pb-8 md:space-y-5">
