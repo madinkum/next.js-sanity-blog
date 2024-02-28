@@ -1,12 +1,10 @@
 import React, { useState } from "react";
 const BlockContent = require("@sanity/block-content-to-react");
 import SyntaxHighlighter from "react-syntax-highlighter";
-import { sanityClient} from "../../sanity";
-import type { Post } from "../../typings";
+import type { Post } from "../../library/typings";
 import { GetStaticProps } from "next";
-
 import { useForm, SubmitHandler } from "react-hook-form";
-
+import client from "@/library/sanity";
 
 interface Props {
   post: Post;
@@ -46,15 +44,9 @@ const Post = ({ post }: Props) => {
           </SyntaxHighlighter>
         </div>
       ),
-      h1: (props: any) => (
-        <h1 className="my-5 text-2xl font-bold" {...props} />
-      ),
-      h2: (props: any) => (
-        <h2 className="my-5 text-xl font-bold" {...props} />
-      ),
-      h3: (props: any) => (
-        <h3 className="my-5 text-l font-bold" {...props} />
-      ),
+      h1: (props: any) => <h1 className="my-5 text-2xl font-bold" {...props} />,
+      h2: (props: any) => <h2 className="my-5 text-xl font-bold" {...props} />,
+      h3: (props: any) => <h3 className="my-5 text-l font-bold" {...props} />,
       li: ({ children }: any) => (
         <li className="ml-4 list-disc"> {children}</li>
       ),
@@ -63,9 +55,7 @@ const Post = ({ post }: Props) => {
           {children}
         </a>
       ),
-
     },
-    
   };
 
   return (
@@ -78,27 +68,23 @@ const Post = ({ post }: Props) => {
 
           <h2 className="text-[18px]">{post.description}</h2>
           <div>
-           
-            <p >
+            <p>
               Blog post by {""} <span>{post.author.name}</span>- Published at{" "}
               {new Date(post.publishedAt).toISOString().split("T")[0]}
             </p>
           </div>
           <div className="divide-y divide-gray-200 pb-7 dark:divide-gray-700 xl:divide-y-0">
             <div className="divide-y divide-gray-200 dark:divide-gray-700 xl:col-span-3 xl:row-span-2 xl:pb-0">
-
-            <div  className="prose max-w-none pb-8 pt-10  prose-lg">
-            
-            <BlockContent 
-              blocks={post.body}
-              projectId="dbfhkj94"
-              dataset="production"
-              serializers={serializers}
-            />
-          </div>
+              <div className="prose max-w-none pb-8 pt-10  prose-lg">
+                <BlockContent
+                  blocks={post.body}
+                  projectId="dbfhkj94"
+                  dataset="production"
+                  serializers={serializers}
+                />
+              </div>
             </div>
           </div>
-          
         </article>
         <hr className="max-w-lg my-5 mx-auto border[1px]" />
         <div>
@@ -118,65 +104,63 @@ const Post = ({ post }: Props) => {
             name="_id"
             value={post._id}
           />
-          { submitted? (
+          {submitted ? (
             <div className="flex flex-col max-w-2xl px-10 py-10 mx-auto my-10 text-white bg-green-500">
-            <h3 className="text-3xl font-bold">
-              Your comment has been submitted!
-            </h3>
-            <p> Once it has been approved, it will appear below</p>
-          </div>
-
-          ):(
-          <form
-            onSubmit={handleSubmit(onSubmit)}
-            className="mt-7 flex flex-col gap-6"
-          >
-            <label className="flex flex-col">
-              <span className="font-titleFont font-semibold text-base">
-                Name
-              </span>
-              <input
-                {...register("name", { required: true })}
-                className="text-base placeholder:text-sm border-b-[1px]
+              <h3 className="text-3xl font-bold">
+                Your comment has been submitted!
+              </h3>
+              <p> Once it has been approved, it will appear below</p>
+            </div>
+          ) : (
+            <form
+              onSubmit={handleSubmit(onSubmit)}
+              className="mt-7 flex flex-col gap-6"
+            >
+              <label className="flex flex-col">
+                <span className="font-titleFont font-semibold text-base">
+                  Name
+                </span>
+                <input
+                  {...register("name", { required: true })}
+                  className="text-base placeholder:text-sm border-b-[1px]
                   py-1 px-4 outline-none focus-within:shadow-xl"
-                type="text"
-                placeholder="Enter Your Name"
-              />
-            </label>
-            <label className="flex flex-col">
-              <span className="font-titleFont font-semibold text-base">
-                Email
-              </span>
-              <input
-                {...register("email", { required: true })}
-                className="text-base placeholder:text-sm border-b-[1px]
+                  type="text"
+                  placeholder="Enter Your Name"
+                />
+              </label>
+              <label className="flex flex-col">
+                <span className="font-titleFont font-semibold text-base">
+                  Email
+                </span>
+                <input
+                  {...register("email", { required: true })}
+                  className="text-base placeholder:text-sm border-b-[1px]
                   py-1 px-4 outline-none focus-within:shadow-xl"
-                type="text"
-                placeholder="Enter your Email"
-              />
-            </label>
-            <label className="flex flex-col">
-              <span className="font-titleFont font-semibold text-base">
-                Comment
-              </span>
-              <textarea
-                {...register("comment", { required: true })}
-                className="text-base placeholder:text-sm border-b-[1px]
+                  type="text"
+                  placeholder="Enter your Email"
+                />
+              </label>
+              <label className="flex flex-col">
+                <span className="font-titleFont font-semibold text-base">
+                  Comment
+                </span>
+                <textarea
+                  {...register("comment", { required: true })}
+                  className="text-base placeholder:text-sm border-b-[1px]
                   py-1 px-4 outline-none focus-within:shadow-xl"
-                placeholder="Enter your Comment"
-                rows={6}
-              />
-              <button
-                className="w-full bg-pink-500 text-white text-base font-titleFont font-semibold tracking-wider uppercase py-2 rounded-sm 
+                  placeholder="Enter your Comment"
+                  rows={6}
+                />
+                <button
+                  className="w-full bg-pink-500 text-white text-base font-titleFont font-semibold tracking-wider uppercase py-2 rounded-sm 
                 hover:bg-pink-600 duration-300"
-                type="submit"
-              >
-                Submit
-              </button>
-            </label>
-          </form>
-
-           )}
+                  type="submit"
+                >
+                  Submit
+                </button>
+              </label>
+            </form>
+          )}
           {/* Comments */}
           <div className="w-full flex flex-col p-10 my-10 mx-auto shadow-bg-pink-400 shadow-lg space-y-2 ">
             <h3 className="text-3xl font-titleFont font-semibold">Comments</h3>
@@ -204,7 +188,7 @@ export const getStaticPaths = async () => {
             current
         }
     }`;
-  const posts = await sanityClient.fetch(query);
+  const posts = await client.fetch(query);
   const paths = posts.map((post: Post) => ({
     params: {
       slug: post.slug.current,
@@ -232,7 +216,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
         body,
     }`;
 
-  const post = await sanityClient.fetch(query, {
+  const post = await client.fetch(query, {
     slug: params?.slug,
   });
   if (!post) {

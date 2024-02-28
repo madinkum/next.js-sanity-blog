@@ -23,6 +23,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "sanity.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "library/sanity.ts"],
   "exclude": ["node_modules"]
 }

@@ -1,4 +1,4 @@
-import { Post } from "../typings";
+import { Post } from "../library/typings";
 import SubscriptionForm from "../components/SubscriptionForm";
 
 interface Props {
