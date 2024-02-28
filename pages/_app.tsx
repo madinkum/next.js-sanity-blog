@@ -5,15 +5,11 @@ import Header from "@/components/Header";
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
   return (
-    
-      <SessionProvider session={session}>
-        
-      <Header/>
-      
-        <Component {...pageProps} />
-        
-      </SessionProvider>
-    
+    <SessionProvider session={session}>
+      <Header />
+
+      <Component {...pageProps} />
+    </SessionProvider>
   );
 }
 

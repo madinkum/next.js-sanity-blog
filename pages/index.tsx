@@ -1,5 +1,3 @@
-
-
 import { Post } from "../typings";
 import SubscriptionForm from "../components/SubscriptionForm";
 

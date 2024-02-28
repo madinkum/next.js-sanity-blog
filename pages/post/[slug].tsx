@@ -6,7 +6,7 @@ import type { Post } from "../../typings";
 import { GetStaticProps } from "next";
 
 import { useForm, SubmitHandler } from "react-hook-form";
-import PortableText from "react-portable-text";
+
 
 interface Props {
   post: Post;
