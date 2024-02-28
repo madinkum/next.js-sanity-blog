@@ -66,6 +66,7 @@ const Post = ({ post }: Props) => {
             {post.title}
           </h1>
 
+
           <h2 className="text-[18px]">{post.description}</h2>
           <div>
             <p>
