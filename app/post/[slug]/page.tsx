@@ -1,16 +1,25 @@
-"use client";
+
 import { Post } from "@/library/interface";
 import client from "@/library/sanity.client";
 import { urlFor } from "@/library/sanityImageUrl";
 const BlockContent = require("@sanity/block-content-to-react");
 import SyntaxHighlighter from "react-syntax-highlighter";
 import Image from "next/image";
-import Comments from "@/app/components/Comments";
+import CommentsForm, { Props } from "@/app/components/CommentsForm";
+
 
 
 
 async function getData(slug: string) {
-  const query = `*[_type == "post" && slug.current == "${slug}"][0]`;
+  const query = `*[_type == "post" && slug.current == "${slug}"][0]{
+    content,
+    _id,
+    slug,
+    _createdAt,
+    title,
+    "comments":*[_type=="comment" && post._ref == ^._id && approved == true],
+     
+  }`;
 
   const data = await client.fetch(query, {});
 
@@ -22,7 +31,7 @@ export default async function SlugPage({
 }: {
   params: { slug: string };
 }) {
-  const data = (await getData(params.slug)) as Post;
+  const data = (await getData(params.slug)) as Post  ;
 
   const PortableTextComponent = {
     types: {
@@ -79,8 +88,8 @@ export default async function SlugPage({
               serializers={serializers}
               components={PortableTextComponent}
             />
-            <Comments/>
           </div>
+          <CommentsForm post={data}/>
         </div>
       </div>
     </div>

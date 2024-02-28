@@ -7,6 +7,7 @@ import Link from "next/link";
 
 async function getData() {
   const query = `*[_type == "post"] | order(_createdAt desc){
+    _id,
     title,
     overview,
     _createdAt ,

@@ -22,29 +22,21 @@ const CommentsForm = ({post}:Props) => {
     handleSubmit,
     formState: { errors },
   } = useForm<Inputs>();
-
+console.log(post);
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     try {
-      const response = await fetch("/api/comments", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
+      await fetch("/api/comments", {
+          method: "POST",
+         
+          body: JSON.stringify(data),
       });
-  
-      if (response.ok) {
-        setSubmitted(true);
-      } else {
-        console.error("Error submitting comment. Server responded with:", response.status);
-        setSubmitted(false);
-      }
-    } catch (err) {
+
+      setSubmitted(true);
+  } catch (err) {
       console.error("Error submitting comment:", err);
       setSubmitted(false);
-    }
-  };
-  
+  }
+};
   return (
     <div>
         <div>
