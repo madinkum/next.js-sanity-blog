@@ -8,7 +8,6 @@ import CommentsForm from "@/app/components/Comments";
 
 
 
-
 async function getData(slug: string) {
   const query = `*[_type == "post" && slug.current == "${slug}"][0]{
     _id,
@@ -95,7 +94,7 @@ export default async function Post({params,}:{params:{slug:string};}){
                serializers={serializers}
             />
           </div>
-         <CommentsForm post={data}/>
+         <CommentsForm post={data} />
         </div>
       </div>
    </div>
