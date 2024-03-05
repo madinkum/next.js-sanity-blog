@@ -1,11 +1,9 @@
 import { Post } from "../library/typings";
 import SubscriptionForm from "../app/components/SubscriptionForm";
 
-interface Props {
-  posts: [Post];
-}
-export default function Home({ posts }: Props) {
-  console.log(posts);
+
+export default function Home() {
+
   return (
     <div>
       <main className="font-bodyFont max-w-3xl mx-auto mb-10">
