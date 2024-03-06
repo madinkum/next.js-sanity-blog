@@ -1,4 +1,3 @@
-import { Post } from "../library/typings";
 import SubscriptionForm from "../app/components/SubscriptionForm";
 
 
