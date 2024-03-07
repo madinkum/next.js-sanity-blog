@@ -2,6 +2,7 @@ import { Post } from "@/library/typings";
 import Link from "next/link";
 import client from "@/library/sanity";
 
+
 async function getData() {
   const query = `*[_type== "post"]|order(publishedAt desc){
       _id,
@@ -17,8 +18,9 @@ async function getData() {
         slug
       }`;
   const data = await client.fetch(query,{
-
+   
   });
+
   return data;
     
   
