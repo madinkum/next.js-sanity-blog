@@ -5,6 +5,6 @@ module.exports = {
     domains:["cdn.sanity.io"]
   },
   experimental: {
-    forceSwcTransforms:true,
+    appDir:true,
   },
 }
