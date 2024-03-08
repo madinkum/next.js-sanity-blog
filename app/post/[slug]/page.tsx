@@ -5,6 +5,7 @@ import type { Post } from "../../../library/typings";
 import client from "@/library/sanity";
 import CommentsForm from "@/app/components/Comments";
 
+
 async function getData(slug: string) {
   const query = `*[_type == "post" && slug.current == "${slug}"][0]{
     _id,
@@ -22,8 +23,6 @@ async function getData(slug: string) {
 }`;
 
   const data = await client.fetch(query, {
-  
-      
     
   });
 
