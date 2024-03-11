@@ -4,6 +4,7 @@ import client from "@/library/sanity";
 
 
 async function getData() {
+  
   const query = `*[_type== "post"]|order(publishedAt desc){
       _id,
       publishedAt,
@@ -18,6 +19,7 @@ async function getData() {
         slug
       }`;
   const data = await client.fetch(query,{
+    
    
   });
 
