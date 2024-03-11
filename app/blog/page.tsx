@@ -2,6 +2,7 @@ import { Post } from "@/library/typings";
 import Link from "next/link";
 import client from "@/library/sanity";
 
+export const revalidate = 60;
 
 async function getData() {
   
