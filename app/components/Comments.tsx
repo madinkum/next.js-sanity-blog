@@ -36,9 +36,10 @@ return(
     <div>
                 <hr className="max-w-lg my-5 mx-auto border[1px]" />
         <div>
-          <p className="text-xs uppercase font-titleFont font-bold">
+          <p className="text-l uppercase font-titleFont font-bold">
             Enjoyed this article?
           </p>
+          <br />
           <h3 className="font-titleFont text-3xl font-bold">
             Leave a comment below
           </h3>
