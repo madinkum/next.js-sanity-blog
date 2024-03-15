@@ -3,7 +3,6 @@ import Link from "next/link";
 import client from "@/library/sanity";
 
 async function getData() {
-  
   const query = `*[_type== "post"]|order(publishedAt desc){
       _id,
       publishedAt,
@@ -17,19 +16,14 @@ async function getData() {
         mainImage,
         slug
       }`;
-  const data = await client.fetch(query,{
-    
-   
-  });
+  const data = await client.fetch(query, {});
 
   return data;
-    
-  
-};
+}
 
-export default async function blockPage () {
- const data:Post[] = await getData() ;
-  
+export default async function blockPage() {
+  const data: Post[] = await getData();
+
   return (
     <div>
       <div className="font-bodyFont max-w-3xl mx-auto mb-10 divide-gray-200 dark:divide-gray-700  border-b-[1px] space-y-2">
@@ -63,7 +57,4 @@ export default async function blockPage () {
       </div>
     </div>
   );
-};
-
-;
-
+}
