@@ -16,7 +16,7 @@ async function getData(slug: string) {
         name,
         image,
     },
-    "comments":*[_type=="comment" && post._ref == ^._id && approved == true],
+    "comments":*[_type=="comment" && post._ref == ^._id ],
     description,
     mainImage,
     body,
