@@ -1,28 +1,44 @@
 'use client'
 import React, { useState } from "react";
-import { Post } from "@/library/typings";
+import { Post, Reply} from "@/library/typings";
 import { useForm, SubmitHandler } from "react-hook-form";
 
 
 interface Props {
   post: Post;
+  
 }
-type Inputs = {
+type CommentInputs = {
   _id: string;
   name: string;
   email: string;
   comment: string;
 };
 
+type ReplyInputs = {
+  commentId: string;
+  name: string;
+  email: string;
+  reply: string;
+  // nestedReplies: Reply[]; 
+};
+
 const CommentsForm = ({ post }: Props) => {
   const [submitted, setSubmitted] = useState(false);
+  
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<Inputs>();
+  } = useForm<CommentInputs>();
 
-  const onSubmit: SubmitHandler<Inputs> = (data) => {
+  const {
+    register: replyRegister,
+    handleSubmit: handleReplySubmit,
+    formState: { errors: replyErrors },
+  } = useForm<ReplyInputs>();
+
+  const onSubmit: SubmitHandler<CommentInputs> = (data) => {
     fetch("/api/createComment", {
       method: "POST",
       body: JSON.stringify(data),
@@ -32,9 +48,27 @@ const CommentsForm = ({ post }: Props) => {
       })
       .catch((err) => setSubmitted(false));
   };
+  const handleReplySubmission: SubmitHandler<ReplyInputs> = (data) => {
+    // Implement logic to submit reply
+    fetch('/api/createReply', {
+      method: 'POST',
+      body: JSON.stringify(data),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+      .then(() => {
+        // handle success
+      })
+      .catch((err) => {
+        // handle error
+      });
+  };
+  
+  
 return(
     <div>
-                <hr className="max-w-lg my-5 mx-auto border[1px]" />
+          <hr className="max-w-lg my-5 mx-auto border[1px]" />
         <div>
           <p className="text-l uppercase font-titleFont font-bold">
             Enjoyed this article?
@@ -58,7 +92,6 @@ return(
               <h3 className="text-3xl font-bold">
                 Your comment has been submitted!
               </h3>
-              <p> Once it has been approved, it will appear below</p>
             </div>
           ) : (
             <form
@@ -109,7 +142,10 @@ return(
                 </button>
               </label>
             </form>
+             
           )}
+
+          
           {/* Comments */}
           <div className="w-full flex flex-col p-10 my-10 mx-auto shadow-bg-pink-400 shadow-lg space-y-2 ">
             <h3 className="text-3xl font-titleFont font-semibold">Comments</h3>
@@ -119,11 +155,27 @@ return(
                 <p>
                   <span className="">{comment.name} : </span> {""}
                   {comment.comment}
+
                 </p>
+                {comment.replies?.map((reply) => (
+                <div key={reply._id}>
+                  <p>
+                    <span className="">{reply.name} : </span> {reply.reply}
+                  </p>
+                  {/* Nested Replies */}
+                  {reply.nestedReplies.map((nestedReply) => (
+                    <div key={nestedReply._id}>
+                      <p>
+                        <span className="">{nestedReply.name} : </span> {nestedReply.reply}
+                      </p>
+                    </div>
+                  ))}
               </div>
+              ))}
+            </div>
             ))}
           </div>
-        </div>
+          </div>
     </div>
 )}
 
