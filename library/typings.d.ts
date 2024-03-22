@@ -34,4 +34,15 @@ export interface Comment {
     _rev: string;
     _type: string;
     _updatedAt: string;
+    replies: Reply[];
+    }
+
+    export interface Reply {
+      _id: string;
+      name: string;
+      email: string;
+      reply: string;
+      publishedAt: string;
+      nestedReplies: Reply[];
+
     }
