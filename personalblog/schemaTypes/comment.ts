@@ -8,12 +8,12 @@ export default {
       name: 'name',
       type: 'string',
     },
-    {
-      name: 'approved',
-      title: 'Approved',
-      type: 'boolean',
-      description: 'Comments will not show on the site without approval',
-    },
+    // {
+    //   name: 'approved',
+    //   title: 'Approved',
+    //   type: 'boolean',
+    //   description: 'Comments will not show on the site without approval',
+    // },
     {
       name: 'email',
       type: 'string',
