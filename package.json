@@ -6,7 +6,7 @@
     "start": "next start"
   },
   "dependencies": {
-    
+    "@giscus/react": "^3.0.0",
     "@portabletext/react": "^3.0.11",
     "@sanity/block-content-to-react": "^3.0.0",
     "@sanity/client": "^6.13.3",
