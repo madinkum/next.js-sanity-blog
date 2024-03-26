@@ -3,8 +3,9 @@ const BlockContent = require("@sanity/block-content-to-react");
 import SyntaxHighlighter from "react-syntax-highlighter";
 import type { Post } from "../../../library/typings";
 import client from "@/library/sanity";
-import CommentForm from "@/app/components/Comments";
-// import CommentsForm from "@/app/components/Comments";
+// import CommentForm from "@/app/components/Comments";
+import CommentsForm from "@/app/components/Comments";
+import SupabaseComments from "@/app/components/SupabaseComments";
 
 export const revalidate = 60;
 async function getData(slug: string) {
@@ -92,8 +93,9 @@ export default async function Post({params,}:{params:{slug:string};}){
                serializers={serializers}
             />
           </div>
-         {/* <CommentsForm post={data} /> */}
-         <CommentForm/>
+          {/* <SupabaseComments/> */}
+         <CommentsForm post={data} />
+         {/* <CommentForm/> */}
         </div>
       </div>
    </div>
