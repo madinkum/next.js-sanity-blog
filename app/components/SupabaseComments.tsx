@@ -4,7 +4,6 @@ import Head from "next/head";
 import { createClient } from "@supabase/supabase-js";
 import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import useSWR, { mutate } from "swr";
-import { userAgent } from "next/server";
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL ?? "";
 const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_KEY ?? "";
