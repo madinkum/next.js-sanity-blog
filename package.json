@@ -18,6 +18,8 @@
     "@superside-oss/sanity-plugin-copy-paste": "^1.0.3",
     "@types/react-copy-to-clipboard": "^5.0.7",
     "@types/react-syntax-highlighter": "^15.5.11",
+    "clipboard-copy": "^4.0.1",
+    "copy-text-to-clipboard": "^3.2.0",
     "next": "latest",
     "next-auth": "^4.24.6",
     "next-sanity": "^8.0.0",
