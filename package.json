@@ -15,6 +15,8 @@
     "@sanity/image-url": "^1.0.2",
     "@sanity/vision": "^3.29.1",
     "@supabase/supabase-js": "^2.39.8",
+    "@superside-oss/sanity-plugin-copy-paste": "^1.0.3",
+    "@types/react-copy-to-clipboard": "^5.0.7",
     "@types/react-syntax-highlighter": "^15.5.11",
     "next": "latest",
     "next-auth": "^4.24.6",
