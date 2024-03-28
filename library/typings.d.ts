@@ -1,4 +1,5 @@
 export interface Post {
+  code: string;
   post: Post;
    _id:string;
    publishedAt:string;
