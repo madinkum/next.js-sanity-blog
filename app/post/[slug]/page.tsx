@@ -88,7 +88,7 @@ export default async function Post({ params }: { params: { slug: string } }) {
           </div>
           <div className="commentbox"></div>
           <script src="https://unpkg.com/commentbox.io/dist/commentBox.min.js"></script>
-          <script>commentBox(5753103617884160-proj)</script>
+          <script>commentBox('5753103617884160-proj')</script>
         </div>
       </div>
     </div>
