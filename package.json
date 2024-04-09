@@ -27,6 +27,7 @@
     "cors": "^2.8.5",
     "disqus-react": "^1.1.5",
     "express": "^4.19.2",
+    "fastcomments-react": "^3.1.2",
     "mongoose": "^8.3.0",
     "next": "latest",
     "next-auth": "^4.24.7",
