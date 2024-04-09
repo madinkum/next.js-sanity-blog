@@ -1,5 +1,4 @@
 
-
 export default {
   name: 'comment',
   type: 'document',
@@ -9,12 +8,12 @@ export default {
       name: 'name',
       type: 'string',
     },
-    {
-      name: 'approved',
-      title: 'Approved',
-      type: 'boolean',
-      description: 'Comments will not show on the site without approval',
-    },
+    // {
+    //   name: 'approved',
+    //   title: 'Approved',
+    //   type: 'boolean',
+    //   description: 'Comments will not show on the site without approval',
+    // },
     {
       name: 'email',
       type: 'string',
@@ -28,5 +27,12 @@ export default {
         type: 'reference',
         to:{type:'post'}
       },
+
+      {
+        name: 'parentComment',
+        type: 'reference',
+        title: 'Parent Comment',
+        to: [{ type: 'comment' }]
+      }
   ],
 }
