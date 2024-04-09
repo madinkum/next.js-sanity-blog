@@ -35,7 +35,7 @@
     "**/*.tsx",
     "library/sanity.ts",
     ".next/types/**/*.ts"
-  ],
+, "app/components/comments/Comments.tsx", "app/components/comments/CommentForm.tsx", "app/components/comments/Comment.tsx"  ],
   "exclude": [
     "node_modules"
   ]
