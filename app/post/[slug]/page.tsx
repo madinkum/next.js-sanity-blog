@@ -86,9 +86,15 @@ export default async function Post({ params }: { params: { slug: string } }) {
               serializers={serializers}
             />
           </div>
-          <div className="commentbox"></div>
-          <script src="https://unpkg.com/commentbox.io/dist/commentBox.min.js"></script>
-          <script>commentBox('5753103617884160-proj')</script>
+          <script>
+            var idcomments_acct = 'd7d7a1188551689d000e5c7e766a66e9'; var
+            idcomments_post_id; var idcomments_post_url;
+          </script>
+          <span id="IDCommentsPostTitle"></span>
+          <script
+            type="text/javascript"
+            src="https://www.intensedebate.com/js/genericCommentWrapperV2.js"
+          ></script>
         </div>
       </div>
     </div>
