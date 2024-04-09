@@ -3,7 +3,6 @@ import SyntaxHighlighter from "react-syntax-highlighter";
 import type { Post } from "../../../library/typings";
 import client from "@/library/sanity";
 import CopyToClipboardButton from "@/app/components/CopyButton";
-import DisqusComments from "@/app/components/DisqusComments";
 
 export const revalidate = 60;
 async function getData(slug: string) {
@@ -87,7 +86,9 @@ export default async function Post({ params }: { params: { slug: string } }) {
               serializers={serializers}
             />
           </div>
-          
+          <div className="commentbox"></div>
+          <script src="https://unpkg.com/commentbox.io/dist/commentBox.min.js"></script>
+          <script>commentBox(5753103617884160-proj)</script>
         </div>
       </div>
     </div>
