@@ -86,15 +86,7 @@ export default async function Post({ params }: { params: { slug: string } }) {
               serializers={serializers}
             />
           </div>
-          <script>
-            var idcomments_acct = 'd7d7a1188551689d000e5c7e766a66e9'; var
-            idcomments_post_id; var idcomments_post_url;
-          </script>
-          <span id="IDCommentsPostTitle"></span>
-          <script
-            type="text/javascript"
-            src="https://www.intensedebate.com/js/genericCommentWrapperV2.js"
-          ></script>
+          
         </div>
       </div>
     </div>
