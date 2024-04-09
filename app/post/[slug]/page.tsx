@@ -3,7 +3,8 @@ import SyntaxHighlighter from "react-syntax-highlighter";
 import type { Post } from "../../../library/typings";
 import client from "@/library/sanity";
 import CopyToClipboardButton from "@/app/components/CopyButton";
-
+import React, { Component } from 'react'
+import Comment from "@/app/components/Comment";
 export const revalidate = 60;
 async function getData(slug: string) {
   const query = `*[_type == "post" && slug.current == "${slug}"][0]{
@@ -86,7 +87,10 @@ export default async function Post({ params }: { params: { slug: string } }) {
               serializers={serializers}
             />
           </div>
-          
+          <div>
+            <Comment/>
+          </div>
+        
         </div>
       </div>
     </div>
