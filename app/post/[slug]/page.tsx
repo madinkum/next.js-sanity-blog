@@ -1,11 +1,9 @@
 const BlockContent = require("@sanity/block-content-to-react");
 import SyntaxHighlighter from "react-syntax-highlighter";
 import type { Post } from "../../../library/typings";
-import client from "@/library/sanity"
-import CommentForm from "@/app/components/Comments";
+import client from "@/library/sanity";
 import CopyToClipboardButton from "@/app/components/CopyButton";
-
-
+import DisqusComments from "@/app/components/DisqusComments";
 
 export const revalidate = 60;
 async function getData(slug: string) {
@@ -30,7 +28,7 @@ async function getData(slug: string) {
 }
 export default async function Post({ params }: { params: { slug: string } }) {
   const data = (await getData(params.slug)) as Post;
-  
+
   const serializers = {
     types: {
       code: (props: any) => (
@@ -38,7 +36,7 @@ export default async function Post({ params }: { params: { slug: string } }) {
           <SyntaxHighlighter language={props.node.language}>
             {props.node.code}
           </SyntaxHighlighter>
-          <CopyToClipboardButton code={props.node.code}/>
+          <CopyToClipboardButton code={props.node.code} />
         </div>
       ),
       h1: (props: any) => <h1 className="my-5 text-2xl font-bold" {...props} />,
@@ -89,7 +87,15 @@ export default async function Post({ params }: { params: { slug: string } }) {
               serializers={serializers}
             />
           </div>
-          <CommentForm />
+          <script>
+            var idcomments_acct = 'd7d7a1188551689d000e5c7e766a66e9'; var
+            idcomments_post_id; var idcomments_post_url;
+          </script>
+          <span id="IDCommentsPostTitle" ></span>
+          <script
+            type="text/javascript"
+            src="https://www.intensedebate.com/js/genericCommentWrapperV2.js"
+          ></script>
         </div>
       </div>
     </div>
