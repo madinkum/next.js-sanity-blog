@@ -11,12 +11,12 @@ const client = createClient({
 });
 
 export default async function createReply(req: NextApiRequest, res: NextApiResponse) {
-  const { commentId, name, email, reply } = req.body;
+  const {_id, name, email, reply } = req.body;
 
   try {
     // Check if the user has already posted 5 replies to this comment
-    const existingReplies = await client.fetch(`*[_type == "reply" && comment._ref == $commentId && name == $name]`, {
-      commentId,
+    const existingReplies = await client.fetch(`*[_type == "reply" && comment._ref == _id && name == $name]`, {
+      _id,
       name,
     });
     
@@ -29,7 +29,7 @@ export default async function createReply(req: NextApiRequest, res: NextApiRespo
       _type: 'reply',
       comment: {
         _type: 'reference',
-        _ref: commentId,
+        _ref: _id,
       },
       name,
       email,
