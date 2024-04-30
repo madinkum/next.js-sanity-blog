@@ -2,8 +2,6 @@
 import { Post } from "@/library/typings"
 import {DiscussionEmbed} from "disqus-react"
 
-
-
 const DisqusComments = (slug:string, post:Post) => { 
 const disqusShortname = 'madinku-dev-3'
 
