@@ -11,7 +11,6 @@ const disqusConfig = {
 	title: post.title,
 } 
  
-
 return ( 
 	<div> 
 	<DiscussionEmbed 
