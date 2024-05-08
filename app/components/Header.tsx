@@ -20,8 +20,7 @@ const Header = () => {
           <ThemeButton />
         </div>
       </div>
-       
-      
+             
     </div>
   );
 };
