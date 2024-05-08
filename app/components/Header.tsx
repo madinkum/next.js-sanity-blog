@@ -19,8 +19,7 @@ const Header = () => {
           <Link href={"/blog"} shallow className="text-2xl font-medium">Blog</Link>
           <ThemeButton />
         </div>
-      </div>
-             
+      </div>          
     </div>
   );
 };
