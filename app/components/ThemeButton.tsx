@@ -19,7 +19,6 @@ export default function ThemeButton() {
     
       onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
     >
-
       {resolvedTheme === "dark" ? (
         <svg
           xmlns="http://www.w3.org/2000/svg"
