@@ -24,7 +24,7 @@ type ReplyInputs = {
 const ReplyComments = ({ comment }: Props) => {
   const [submitted, setSubmitted] = useState(false);
   
-  
+
   const {
     register,
     handleSubmit,
