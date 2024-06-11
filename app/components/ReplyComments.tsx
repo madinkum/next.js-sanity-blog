@@ -82,6 +82,7 @@ return(
                 <span className="font-titleFont font-semibold text-base">
                   Name
                 </span>
+                
                 <input
                   {...register("name", { required: true })}
                   className="text-base placeholder:text-sm border-b-[1px]
