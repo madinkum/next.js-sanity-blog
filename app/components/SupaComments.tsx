@@ -100,4 +100,5 @@ export function SupaComments({ id, }: Props) {
       </form>
     </div>
   );
+  
 }
